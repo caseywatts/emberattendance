@@ -28,6 +28,10 @@ export default Ember.ArrayController.extend({
       this.set('newPresenceName', '');
       person.save();
     },
+    removePerson: function(person) {
+      person.deleteRecord();
+      person.save();
+    },
     importPeople: function() {
       var peopleList = this.get('importList');
       var peopleArray = peopleList.split("\n");
