@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="col-md-4">
+  <h3>Present People</h3>
+    <ul id="present-list">
+      {{#each person in present}}
+        <li>
+          <label {{action "makeAbsent" person}}>{{person.name}}</label>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h3>Absent People</h3>
+    <ul id="absent-list">
+      {{#each person in absent}}
+        <li>
+          <label {{action "makePresent" person}}>{{person.name}}</label>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>

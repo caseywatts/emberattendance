@@ -6,6 +6,12 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.resource('presences', { path: '/' }, function(){
+    // this.route('all');
+    // this.route('absent');
+    // this.route('present');
+  });
 });
+
 
 export default Router;
