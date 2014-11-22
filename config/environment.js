@@ -43,5 +43,8 @@ module.exports = function(environment) {
 
   }
 
+  if (environment === 'gh-pages') {
+    ENV.baseURL= 'http://caseywatts.github.io/emberattendance/',
+  }
   return ENV;
 };
