@@ -87,7 +87,7 @@ catch(err) {
 if (runningTests) {
   require('emberattendance/tests/test-helper');
 } else {
-  require('emberattendance/app')['default'].create({"LOG_ACTIVE_GENERATION":true,"LOG_VIEW_LOOKUPS":true});
+  require('emberattendance/app')['default'].create({});
 }
 
 /* jshint ignore:end */
