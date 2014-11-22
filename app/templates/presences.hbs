@@ -1,20 +1,42 @@
 <div class="container">
+  <div class="col-md-3">
+    <form {{action "importPeople" on="submit"}}>
+      {{textarea
+        id="import-list"
+        placeholder="List of Names"
+        value=importList
+        rows=10}}
+        <button class="btn btn-primary btn-block" type="submit">Save</button>
+    </form>
+  </div>
   <div class="col-md-4">
-  <h3>Present People</h3>
-    <ul id="present-list">
-      {{#each person in present}}
+    <h3>Absent People</h3>
+    {{input
+      type="text"
+      id="new-absent"
+      placeholder="Bob"
+      value=newAbsenceName
+      action="createAbsentPerson"}}
+    <ul id="absent-list">
+      {{#each person in absent}}
         <li>
-          <label {{action "makeAbsent" person}}>{{person.name}}</label>
+          <label {{action "makePresent" person}}>{{person.name}}</label>
         </li>
       {{/each}}
     </ul>
   </div>
   <div class="col-md-4">
-    <h3>Absent People</h3>
-    <ul id="absent-list">
-      {{#each person in absent}}
+    <h3>Present People</h3>
+    {{input
+      type="text"
+      id="new-present"
+      placeholder="Bob"
+      value=newPresenceName
+      action="createPresentPerson"}}
+    <ul id="present-list">
+      {{#each person in present}}
         <li>
-          <label {{action "makePresent" person}}>{{person.name}}</label>
+          <label {{action "makeAbsent" person}}>{{person.name}}</label>
         </li>
       {{/each}}
     </ul>
