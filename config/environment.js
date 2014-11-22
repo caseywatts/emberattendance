@@ -44,7 +44,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'gh-pages') {
-    ENV.baseURL= '/'
+    ENV.baseURL= '/emberattendance'
   }
 
   return ENV;
