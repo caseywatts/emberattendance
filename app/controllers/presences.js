@@ -42,7 +42,7 @@ export default Ember.ArrayController.extend({
           name: name
         });
         person.save();
-      })
+      });
       this.set('importList', '');
     }
   },
