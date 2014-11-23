@@ -12,12 +12,12 @@
   <div class="col-md-3">
     <h3>Absent People</h3>
     <ul id="absent-list" class="btn-group-vertical clearfix">
-          {{input
-      type="text"
-      id="new-absent"
-      placeholder="Bob"
-      value=newAbsenceName
-      action="createAbsentPerson"}}
+      {{input
+        type="text"
+        id="new-absent"
+        placeholder="Bob"
+        value=newAbsenceName
+        action="createAbsentPerson"}}
       {{#each person in absent}}
         <li class="btn btn-default" {{action "makePresent" person}}>
           {{person.name}}
