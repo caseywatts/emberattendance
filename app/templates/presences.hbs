@@ -10,6 +10,7 @@
     </form>
   </div>
   <div class="col-md-3">
+  {{#draggable-dropzone dropped="makeAbsentID"}}
     <h3>Absent People</h3>
     <ul id="absent-list" class="btn-group-vertical clearfix">
       {{input
@@ -18,15 +19,19 @@
         placeholder="Bob"
         value=newAbsenceName
         action="createAbsentPerson"}}
-      {{#each person in absent}}
-        <li class="btn btn-default" {{action "makePresent" person}}>
-          {{person.name}}
-          <button type="button" class="close" {{action "removePerson" person}}>&times;</button>
-        </li>
-      {{/each}}
+        {{#each person in absent}}
+          {{#draggable-item content=person.id}}
+            <li class="btn btn-default" {{action "makePresent" person}}>
+              {{person.name}}
+              <button type="button" class="close" {{action "removePerson" person}}>&times;</button>
+            </li>
+          {{/draggable-item}}
+        {{/each}}
     </ul>
+  {{/draggable-dropzone}}
   </div>
   <div class="col-md-3">
+    {{#draggable-dropzone dropped="makePresentID"}}
     <h3>Present People</h3>
     <ul id="present-list" class="btn-group-vertical clearfix">
     {{input
@@ -35,12 +40,15 @@
       placeholder="Bob"
       value=newPresenceName
       action="createPresentPerson"}}
-      {{#each person in present}}
-        <li class="btn btn-default" {{action "makeAbsent" person}}>
-          {{person.name}}
-          <button type="button" class="close" {{action "removePerson" person}}>&times;</button>
-        </li>
-      {{/each}}
+        {{#each person in present}}
+          {{#draggable-item content=person.id}}
+            <li class="btn btn-default" {{action "makeAbsent" person}}>
+              {{person.name}}
+              <button type="button" class="close" {{action "removePerson" person}}>&times;</button>
+            </li>
+          {{/draggable-item}}
+        {{/each}}
     </ul>
+  {{/draggable-dropzone}}
   </div>
 </div>

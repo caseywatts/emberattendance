@@ -10,6 +10,18 @@ export default Ember.ArrayController.extend({
       person.set('isPresent', true);
       person.save();
     },
+    makeAbsentID: function(personID) {
+      this.store.find('presence', personID).then(function(person){
+        person.set('isPresent', false);
+        person.save();
+      });
+    },
+    makePresentID: function(personID) {
+      this.store.find('presence', personID).then(function(person){
+        person.set('isPresent', true);
+        person.save();
+      });
+    },
     createAbsentPerson: function() {
       var newName = this.get('newAbsenceName');
       var person = this.store.createRecord('presence', {
@@ -44,6 +56,9 @@ export default Ember.ArrayController.extend({
         person.save();
       });
       this.set('importList', '');
+    },
+    lolol: function() {
+      alert("lol");
     }
   },
 
