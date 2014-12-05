@@ -10,14 +10,22 @@
     </form>
   </div>
   <div class="col-md-3">
+    {{filterable-list list=absent}}
+  </div>
+  <div class="col-md-3">
     <h3>Absent People</h3>
     <ul id="absent-list" class="btn-group-vertical clearfix">
-      {{input
+{{!--       {{input
         type="text"
         id="new-absent"
-        placeholder="Bob"
+        placeholder="New Person"
         value=newAbsenceName
-        action="createAbsentPerson"}}
+        action="createAbsentPerson"}} --}}
+      {{input
+        type="text"
+        id="filter-absent"
+        placeholder="Filter Names"
+        value=filterAbsenceName}}
       {{#each person in absent}}
         <li class="btn btn-default" {{action "makePresent" person}}>
           {{person.name}}
